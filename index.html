@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SOP Pembuatan Topeng Malangan</title>
+<style>
+  :root {
+    --orange: #f77c21;
+    --black: #111;
+    --white: #fff;
+    --gray: #666;
+    font-family: "Poppins", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--white);
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  header {
+    background: linear-gradient(180deg, var(--orange) 0%, #ffb15a 100%);
+    padding: 20px 0 35px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+  .logo-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 15px;
+  }
+  .logo-row img {
+    height: 70px;
+    object-fit: contain;
+  }
+  header h1 {
+    font-size: 26px;
+    margin: 0;
+    font-weight: 700;
+  }
+  header p {
+    margin: 6px 0 0;
+    color: rgba(255,255,255,0.9);
+  }
+
+  main {
+    flex: 1;
+    text-align: center;
+    padding: 60px 20px;
+    background: #fffaf5;
+  }
+  main .intro {
+    max-width: 700px;
+    margin: 0 auto 50px;
+    color: var(--gray);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .choices {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .choice {
+    flex: 1 1 250px;
+    background: white;
+    border: 3px solid var(--orange);
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 40px 20px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  .choice:hover {
+    background: var(--orange);
+    color: white;
+    transform: translateY(-5px);
+  }
+  .choice h2 {
+    margin: 0 0 10px;
+    font-size: 22px;
+  }
+  .choice p {
+    margin: 0;
+    color: var(--gray);
+  }
+  .choice:hover p {
+    color: rgba(255,255,255,0.9);
+  }
+  .choice a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  footer {
+    background: var(--black);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+    margin-top: auto;
+  }
+  footer span { color: var(--orange); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-row">
+    <img src="C:/Users/adamc/Downloads/Machung.svg" alt="Ma Chung">
+    <img src="C:/Users/adamc/Downloads/Diktisaintek.png" alt="Diktisaintek">
+    <img src="C:/Users/adamc/Downloads/Bima.png" alt="BIMA">
+  </div>
+  <h1>SOP Pembuatan Topeng Malangan</h1>
+  <p>Program Kolaborasi Universitas Ma Chung, Diktisaintek, dan BiMA</p>
+</header>
+
+<main>
+  <div class="intro">
+    <p><strong>SOP Pembuatan Topeng Malangan</strong> merupakan panduan pembelajaran berbasis kearifan lokal yang dikembangkan oleh Universitas Ma Chung bersama Diktisaintek dan BiMA.  
+    Pilih salah satu versi tampilan di bawah ini untuk melihat panduan dalam bentuk <em>visual</em>, <em>video</em>, atau <em>bahasa isyarat (BISINDO)</em>.</p>
+  </div>
+
+  <section class="choices">
+    <div class="choice">
+      <a href="landscape.html">
+        <h2>Landscape</h2>
+        <p>Gambar</p>
+      </a>
+    </div>
+    <div class="choice">
+      <a href="video.html">
+        <h2>Video</h2>
+        <p>Tutorial Topeng</p>
+      </a>
+    </div>
+    <div class="choice">
+      <a href="bisindo.html">
+        <h2>BISINDO</h2>
+        <p>Bahasa Isyarat</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © <span>2025</span> — Universitas Ma Chung.
+</footer>
+
+</body>
+</html>
