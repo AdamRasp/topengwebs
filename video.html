@@ -12,7 +12,9 @@
     --gray: #666;
     font-family: "Poppins", sans-serif;
   }
+
   * { box-sizing: border-box; }
+
   body {
     margin: 0;
     background: #fffaf5;
@@ -22,7 +24,6 @@
     min-height: 100vh;
   }
 
-  /* HEADER */
   header {
     background: linear-gradient(180deg, var(--orange) 0%, #ffb15a 100%);
     padding: 20px 0 35px;
@@ -30,6 +31,7 @@
     text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   }
+
   .logo-row {
     display: flex;
     justify-content: center;
@@ -37,21 +39,35 @@
     gap: 30px;
     margin-bottom: 15px;
   }
-  .logo-row img { height: 70px; object-fit: contain; }
-  header h1 { font-size: 26px; margin: 0; font-weight: 700; }
-  header p { margin: 6px 0 0; color: rgba(255,255,255,0.9); }
 
-  /* MAIN */
+  .logo-row img {
+    height: 70px;
+    object-fit: contain;
+  }
+
+  header h1 {
+    font-size: 26px;
+    margin: 0;
+    font-weight: 700;
+  }
+
+  header p {
+    margin: 6px 0 0;
+    color: rgba(255,255,255,0.9);
+  }
+
   main {
     flex: 1;
     padding: 50px 20px;
     text-align: center;
   }
+
   main h2 {
     font-size: 24px;
     color: var(--black);
     margin-bottom: 10px;
   }
+
   main p.desc {
     color: var(--gray);
     max-width: 700px;
@@ -64,7 +80,24 @@
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    border: 2px solid #ffe3c5;
   }
+
+  .video-item h3 {
+    color: var(--orange);
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .video-item p {
+    color: var(--gray);
+    margin-bottom: 15px;
+  }
+
   iframe {
     width: 100%;
     height: 400px;
@@ -73,23 +106,23 @@
     box-shadow: 0 6px 16px rgba(0,0,0,0.1);
   }
 
-  /* BUTTON */
   .back-link {
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 10px 22px;
     border-radius: 8px;
     background: var(--orange);
     color: white;
     text-decoration: none;
+    font-weight: 500;
     transition: all 0.2s;
   }
+
   .back-link:hover {
     background: #ff8f3a;
     transform: translateY(-3px);
   }
 
-  /* FOOTER */
   footer {
     background: var(--black);
     color: white;
@@ -98,12 +131,19 @@
     font-size: 14px;
     margin-top: auto;
   }
-  footer span { color: var(--orange); }
+
+  footer span {
+    color: var(--orange);
+  }
+
+  @media (max-width: 700px) {
+    .logo-row img { height: 55px; }
+    iframe { height: 250px; }
+  }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="logo-row">
     <img src="source/Machung.svg" alt="Ma Chung">
@@ -114,37 +154,31 @@
   <p>Program Kolaborasi Universitas Ma Chung, Diktisaintek, dan BiMA</p>
 </header>
 
-<!-- MAIN CONTENT -->
 <main>
   <h2>Langkah-langkah Pembuatan Topeng</h2>
   <p class="desc">Berikut dokumentasi proses pembuatan topeng Malangan dari tahap desain hingga penyelesaian akhir.</p>
 
-  <!-- VIDEO 1 -->
   <div class="video-item">
     <h3>Video 1 — Desain & Pola Dasar</h3>
-    <p class="desc">Menjelaskan proses awal dalam menggambar pola wajah dan menentukan proporsi bentuk topeng.</p>
+    <p>Menjelaskan proses awal dalam menggambar pola wajah dan menentukan proporsi bentuk topeng.</p>
     <iframe src="https://www.youtube.com/embed/T3rLvwljYfo" allowfullscreen></iframe>
   </div>
 
-  <!-- VIDEO 2 -->
   <div class="video-item">
     <h3>Video 2 — Pahatan dan Detil</h3>
-    <p class="desc">Tahapan pahat dasar hingga detil ekspresi wajah karakter Topeng Malangan.</p>
+    <p>Tahapan pahat dasar hingga detil ekspresi wajah karakter Topeng Malangan.</p>
     <iframe src="https://www.youtube.com/embed/u5HIw8OJeXY" allowfullscreen></iframe>
   </div>
 
-  <!-- VIDEO 3 -->
   <div class="video-item">
     <h3>Video 3 — Finishing & Pewarnaan</h3>
-    <p class="desc">Menampilkan proses cat, pewarnaan, serta pelapisan akhir dengan vernis.</p>
+    <p>Menampilkan proses cat, pewarnaan, serta pelapisan akhir dengan vernis.</p>
     <iframe src="https://www.youtube.com/embed/eqlJ9c8ZCkU" allowfullscreen></iframe>
   </div>
 
-  <!-- BACK BUTTON -->
   <a href="index.html" class="back-link">← Kembali ke Halaman Utama</a>
 </main>
 
-<!-- FOOTER -->
 <footer>
   © <span>2025</span> — Universitas Ma Chung.
 </footer>
