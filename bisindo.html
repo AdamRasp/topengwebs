@@ -20,17 +20,16 @@ header{background:linear-gradient(180deg,var(--orange),#ffb15a);padding:18px 12p
 .logo-row img{height:56px;object-fit:contain}
 header h1{margin:6px 0 2px;font-size:22px}
 header p{margin:0;color:rgba(255,255,255,0.95)}
-header .subtitle{margin-top:8px;font-weight:600;color:rgba(255,255,255,0.95);opacity:0.95}
 main{max-width:1200px;margin:28px auto;padding:0 18px}
 .lead{text-align:center;color:var(--muted);margin-bottom:20px}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.card{background:var(--card-bg);border-radius:12px;padding:12px;text-align:center;border:1px solid #f0e9e1;box-shadow:0 8px 22px rgba(0,0,0,0.06);position:relative;overflow:visible}
+.card{background:var(--card-bg);border-radius:12px;padding:12px;text-align:center;border:1px solid #f0e9e1;box-shadow:0 8px 22px rgba(0,0,0,0.06);position:relative;overflow:visible;cursor:pointer;transition:transform .14s ease,box-shadow .14s ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,0.12)}
 .img-wrap{position:relative;width:100%;height:260px;border-radius:10px;overflow:hidden;border:1px solid #f4efe9;background:#fafafa;display:flex;align-items:center;justify-content:center}
 .img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
 .title{font-weight:700;margin:12px 0 6px}
 .badge{position:absolute;right:16px;top:10px;background:rgba(255,255,255,0.95);padding:8px;border-radius:999px;border:1px solid rgba(0,0,0,0.06);box-shadow:0 6px 14px rgba(0,0,0,0.06);font-size:18px;line-height:1;z-index:6}
 .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:700;margin-top:10px;box-shadow:0 8px 16px rgba(0,0,0,0.08)}
-.grid article:active{transform:translateY(1px)}
 .modal-back{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:999}
 .modal{background:#fff;border-radius:12px;max-width:1000px;width:100%;max-height:92vh;overflow:auto;padding:18px;box-shadow:0 24px 60px rgba(0,0,0,0.4)}
 .modal header{display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -38,9 +37,7 @@ main{max-width:1200px;margin:28px auto;padding:0 18px}
 .modal .body{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px}
 .modal .body img{max-width:640px;width:100%;height:auto;border-radius:8px;border:3px solid var(--orange)}
 .modal .meta{flex:1;min-width:220px}
-.modal p{color:var(--muted);line-height:1.6}
-.actions{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
-.btn-ghost{background:#f2f2f2;padding:10px 14px;border-radius:8px;text-decoration:none;color:#333}
+.modal p{color:var(--muted);line-height:1.6;font-size:15px}
 .back-home{display:inline-block;background:var(--orange);color:#fff;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:700;margin:24px auto 40px;display:block;width:max-content;box-shadow:0 8px 18px rgba(0,0,0,0.12)}
 @media(max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}.img-wrap{height:220px}}
 @media(max-width:620px){.grid{grid-template-columns:1fr}.img-wrap{height:200px}}
@@ -55,74 +52,73 @@ main{max-width:1200px;margin:28px auto;padding:0 18px}
   </div>
   <h1>SOP Pembuatan Topeng Malangan</h1>
   <p>Program Kolaborasi Universitas Ma Chung, Diktisaintek, dan BiMA</p>
-  <div class="subtitle">Versi BISINDO Visual — 9 Langkah + Ekspresi</div>
 </header>
 
 <main>
-  <p class="lead">Setiap kartu menampilkan gambar full dalam kotak. Klik kartu untuk memperbesar dan unduh gambar jika tersedia.</p>
+  <p class="lead">Klik setiap langkah untuk melihat gambar, emoji, dan penjelasan lengkap mengenai proses pembuatan topeng Malangan.</p>
 
   <section class="grid" id="grid">
-    <article class="card" data-img="source/BISINDO_PILIH.png" data-title="1. PILIH KARAKTER" data-desc="Pilih karakter sesuai pakem: Panji, Sekartaji, Gunungsari, Ragil Kuning, Klana, Bapang." data-emoji="🙂">
+    <article class="card" data-img="source/BISINDO_PILIH.png" data-title="1. PILIH KARAKTER" data-desc="Langkah awal adalah menentukan karakter topeng yang akan dibuat. Karakter tradisional antara lain Panji, Sekartaji, Gunungsari, Ragil Kuning, Klana, dan Bapang. Setiap karakter memiliki makna dan ekspresi tersendiri." data-emoji="🙂">
       <div class="badge">🙂</div>
       <div class="img-wrap"><img src="source/BISINDO_PILIH.png" alt="Pilih Karakter"></div>
       <div class="title">1. PILIH KARAKTER</div>
-      <a class="btn">PILIH</a>
+      <a class="btn">LIHAT</a>
     </article>
 
-    <article class="card" data-img="source/BISINDO_SALIN.png" data-title="2. SALIN POLA" data-desc="Salin pola/sketsa ke media kayu menggunakan karbon agar proporsi terjaga." data-emoji="😐">
+    <article class="card" data-img="source/BISINDO_SALIN.png" data-title="2. SALIN POLA" data-desc="Pola desain digambar terlebih dahulu, kemudian disalin ke media kayu menggunakan kertas karbon. Tujuannya agar bentuk wajah dan proporsi sesuai dengan rancangan." data-emoji="😐">
       <div class="badge">😐</div>
       <div class="img-wrap"><img src="source/BISINDO_SALIN.png" alt="Salin Pola"></div>
       <div class="title">2. SALIN POLA</div>
-      <a class="btn">SALIN</a>
+      <a class="btn">LIHAT</a>
     </article>
 
-    <article class="card" data-img="source/BISINDO_PAHAT.png" data-title="3. PAHAT DASAR" data-desc="Lakukan blocking pahat untuk membentuk dasar wajah; sisakan bahan untuk koreksi." data-emoji="😮">
+    <article class="card" data-img="source/BISINDO_PAHAT.png" data-title="3. PAHAT DASAR" data-desc="Gunakan pahat untuk membentuk struktur dasar wajah topeng. Proses ini disebut blocking, di mana bagian utama seperti mata, hidung, dan pipi mulai muncul." data-emoji="😮">
       <div class="badge">😮</div>
       <div class="img-wrap"><img src="source/BISINDO_PAHAT.png" alt="Pahat Dasar"></div>
       <div class="title">3. PAHAT DASAR</div>
-      <a class="btn">PAHAT</a>
+      <a class="btn">LIHAT</a>
     </article>
 
-    <article class="card" data-img="source/BISINDO_AMPLAS.png" data-title="4. AMPLAS BERTAHAP" data-desc="Amplas bertahap untuk permukaan halus; periksa simetri." data-emoji="😕">
+    <article class="card" data-img="source/BISINDO_AMPLAS.png" data-title="4. AMPLAS BERTAHAP" data-desc="Amplas permukaan kayu secara bertahap dengan kertas amplas halus agar topeng menjadi rata dan lembut. Pastikan simetri wajah tetap terjaga." data-emoji="😕">
       <div class="badge">😕</div>
       <div class="img-wrap"><img src="source/BISINDO_AMPLAS.png" alt="Amplas"></div>
       <div class="title">4. AMPLAS BERTAHAP</div>
-      <a class="btn">AMPLAS</a>
+      <a class="btn">LIHAT</a>
     </article>
 
-    <article class="card" data-img="source/BISINDO_SEALER.png" data-title="5. SEALER / FILLER" data-desc="Tutup pori dengan sealer/wood filler, keringkan, lalu amplas halus." data-emoji="🙂">
+    <article class="card" data-img="source/BISINDO_SEALER.png" data-title="5. SEALER / FILLER" data-desc="Gunakan sealer atau wood filler untuk menutup pori-pori kayu. Setelah kering, amplas lagi dengan lembut agar cat dapat menempel sempurna." data-emoji="🙂">
       <div class="badge">🙂</div>
       <div class="img-wrap"><img src="source/BISINDO_SEALER.png" alt="Sealer"></div>
-      <div class="title">5. SEALER/FILLER</div>
-      <a class="btn">SEALER</a>
+      <div class="title">5. SEALER / FILLER</div>
+      <a class="btn">LIHAT</a>
     </article>
 
-    <article class="card" data-img="source/BISINDO_CAT.png" data-title="6. CAT WARNA" data-desc="Cat dasar & ornamen warna sesuai karakter; biarkan kering antar layer." data-emoji="🙂">
+    <article class="card" data-img="source/BISINDO_CAT.png" data-title="6. CAT WARNA" data-desc="Aplikasikan cat dasar dan lanjutkan dengan warna-warna khas karakter. Setiap lapisan harus dibiarkan kering sebelum menambahkan warna berikutnya." data-emoji="🙂">
       <div class="badge">🙂</div>
       <div class="img-wrap"><img src="source/BISINDO_CAT.png" alt="Cat Warna"></div>
       <div class="title">6. CAT WARNA</div>
-      <a class="btn">CAT</a>
+      <a class="btn">LIHAT</a>
     </article>
 
-    <article class="card" data-img="source/BISINDO_VERNIS.png" data-title="7. VERNIS" data-desc="Lapisi vernis tipis merata; hindari gelembung; keringkan di area bersih." data-emoji="🙂">
+    <article class="card" data-img="source/BISINDO_VERNIS.png" data-title="7. VERNIS" data-desc="Lapisi topeng dengan vernis agar permukaannya mengilap dan terlindungi dari debu serta lembap. Oleskan secara tipis dan merata." data-emoji="🙂">
       <div class="badge">🙂</div>
       <div class="img-wrap"><img src="source/BISINDO_VERNIS.png" alt="Vernis"></div>
       <div class="title">7. VERNIS</div>
-      <a class="btn">VERNIS</a>
+      <a class="btn">LIHAT</a>
     </article>
 
-    <article class="card" data-img="source/BISINDO_PERIKSA.png" data-title="8. QC / PERIKSA" data-desc="Cek proporsi, cat, dan kehalusan; catat perbaikan jika ada." data-emoji="🙂">
+    <article class="card" data-img="source/BISINDO_PERIKSA.png" data-title="8. QC / PERIKSA" data-desc="Periksa kembali hasil akhir. Pastikan tidak ada bagian kasar, cat yang meluber, atau bentuk yang tidak simetris." data-emoji="🙂">
       <div class="badge">🙂</div>
       <div class="img-wrap"><img src="source/BISINDO_PERIKSA.png" alt="QC"></div>
       <div class="title">8. QC / PERIKSA</div>
-      <a class="btn">PERIKSA</a>
+      <a class="btn">LIHAT</a>
     </article>
 
-    <article class="card" data-img="source/BISINDO_KEMAS.png" data-title="9. KEMAS" data-desc="Kemasi dengan bubble wrap + silica gel; gunakan label 'Fragile' jika perlu." data-emoji="🙂">
+    <article class="card" data-img="source/BISINDO_KEMAS.png" data-title="9. KEMAS" data-desc="Setelah lolos pemeriksaan, kemasi topeng dengan bubble wrap dan silica gel agar aman saat penyimpanan atau pengiriman." data-emoji="🙂">
       <div class="badge">🙂</div>
       <div class="img-wrap"><img src="source/BISINDO_KEMAS.png" alt="Kemas"></div>
       <div class="title">9. KEMAS</div>
-      <a class="btn">KEMAS</a>
+      <a class="btn">LIHAT</a>
     </article>
   </section>
 
@@ -139,10 +135,6 @@ main{max-width:1200px;margin:28px auto;padding:0 18px}
       <img id="modal-img" src="" alt="">
       <div class="meta">
         <p id="modal-desc"></p>
-        <div class="actions">
-          <a id="download-link" class="btn-ghost" download>Unduh gambar</a>
-          <a href="index.html" class="btn-ghost">Kembali Halaman Utama</a>
-        </div>
       </div>
     </div>
   </div>
@@ -154,8 +146,8 @@ const modalBack = document.getElementById('modal');
 const modalTitle = document.getElementById('modal-title');
 const modalImg = document.getElementById('modal-img');
 const modalDesc = document.getElementById('modal-desc');
-const downloadLink = document.getElementById('download-link');
 const closeBtn = document.getElementById('close');
+
 grid.addEventListener('click', (e) => {
   const card = e.target.closest('.card');
   if (!card) return;
@@ -166,21 +158,22 @@ grid.addEventListener('click', (e) => {
   modalImg.src = img;
   modalImg.alt = title;
   modalDesc.textContent = desc;
-  downloadLink.href = img;
-  downloadLink.setAttribute('download', img.split('/').pop() || 'image.png');
   modalBack.style.display = 'flex';
   modalBack.setAttribute('aria-hidden','false');
 });
+
 closeBtn.addEventListener('click', () => {
   modalBack.style.display = 'none';
   modalBack.setAttribute('aria-hidden','true');
 });
+
 modalBack.addEventListener('click', (ev) => {
   if (ev.target === modalBack) {
     modalBack.style.display = 'none';
     modalBack.setAttribute('aria-hidden','true');
   }
 });
+
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     modalBack.style.display = 'none';
