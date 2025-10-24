@@ -11,49 +11,56 @@
     --bg:#fffaf5;
     --muted:#666;
     --card-bg:#ffffff;
+    --accent:#00a9e0;
   }
   *{box-sizing:border-box}
-  body{
-    margin:0;background:var(--bg);color:var(--black);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-  }
-
-  header{
-    background:linear-gradient(180deg,var(--orange),#ffb15a);padding:18px;text-align:center;color:#fff;
-    box-shadow:0 4px 10px rgba(0,0,0,0.12);
-  }
+  body{margin:0;background:var(--bg);color:var(--black);font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
+  header{background:linear-gradient(180deg,var(--orange),#ffb15a);padding:18px;text-align:center;color:#fff;box-shadow:0 4px 10px rgba(0,0,0,0.12)}
   .logo-row{display:flex;gap:18px;justify-content:center;align-items:center;margin-bottom:8px}
   .logo-row img{height:56px;object-fit:contain}
   header h1{margin:6px 0 0;font-size:20px}
-
   main{max-width:1150px;margin:26px auto;padding:0 14px}
+
   .lead{text-align:center;color:var(--muted);margin-bottom:22px}
 
+  /* grid */
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .card{
-    background:var(--card-bg);border-radius:12px;padding:18px;text-align:center;
+    background:var(--card-bg);border-radius:12px;padding:10px;text-align:center;
     box-shadow:0 6px 18px rgba(0,0,0,0.06);cursor:pointer;border:1px solid #f0e9e1;
     transition:transform .14s ease, box-shadow .14s;
+    overflow:visible;position:relative;
   }
   .card:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(0,0,0,0.12)}
-  .card .title{font-weight:700;margin-bottom:12px}
-  .card img{width:140px;height:120px;object-fit:contain;margin:0 auto 12px;display:block}
-  .card .btn{display:inline-block;background:#00a9e0;color:#fff;padding:8px 14px;border-radius:999px;text-decoration:none;font-weight:700;box-shadow:0 6px 10px rgba(0,0,0,0.08)}
+  .card .title{font-weight:700;margin:10px 0 8px}
+  /* image container keeps consistent height; object-fit cover displays 'full-like' */
+  .img-wrap{position:relative;width:100%;height:160px;border-radius:8px;overflow:hidden;border:1px solid #eee;background:#fafafa}
+  .img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* badge (emoji) top-right */
+  .badge{
+    position:absolute;right:14px;top:12px;background:rgba(255,255,255,0.95);padding:6px;border-radius:999px;border:1px solid rgba(0,0,0,0.06);
+    box-shadow:0 4px 10px rgba(0,0,0,0.06);font-size:18px;line-height:1;z-index:6;
+  }
+
+  .card .btn{display:inline-block;background:var(--accent);color:#fff;padding:8px 14px;border-radius:999px;text-decoration:none;font-weight:700;margin-top:12px}
 
   /* modal */
-  .modal-back{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:999}
-  .modal{background:#fff;border-radius:10px;max-width:920px;width:100%;max-height:90vh;overflow:auto;padding:18px;box-shadow:0 24px 60px rgba(0,0,0,0.4)}
-  .modal header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .modal-back{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;padding:16px;z-index:999}
+  .modal{background:#fff;border-radius:10px;max-width:980px;width:100%;max-height:92vh;overflow:auto;padding:18px;box-shadow:0 24px 60px rgba(0,0,0,0.4)}
+  .modal header{display:flex;justify-content:space-between;align-items:center}
   .modal header h2{margin:0;font-size:18px}
-  .modal .modal-body{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}
-  .modal .modal-body img{max-width:480px;width:100%;height:auto;border-radius:8px;border:3px solid var(--orange)}
-  .modal .meta{flex:1;min-width:200px}
-  .modal p{color:var(--muted);line-height:1.5}
+  .modal .body{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}
+  .modal .body img{max-width:640px;width:100%;height:auto;border-radius:8px;border:3px solid var(--orange)}
+  .modal .meta{flex:1;min-width:220px}
+  .modal p{color:var(--muted);line-height:1.6}
 
   .modal .actions{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
-  .btn-ghost{background:#f0f0f0;padding:8px 12px;border-radius:8px;text-decoration:none;color:#333}
+  .btn-ghost{background:#f2f2f2;padding:8px 12px;border-radius:8px;text-decoration:none;color:#333}
 
+  /* responsive */
   @media(max-width:920px){.grid{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:560px){.grid{grid-template-columns:1fr}.card img{width:120px;height:90px}}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}.img-wrap{height:140px}}
 </style>
 </head>
 <body>
@@ -68,80 +75,90 @@
 </header>
 
 <main>
-  <p class="lead">Klik kartu untuk memperbesar. Jika kamu punya versi potongan (crop) atau full-size untuk diunduh, tempatkan file di <code>source/bisindo/</code> lalu link download akan muncul di modal.</p>
+  <p class="lead">Setiap kartu menampilkan gambar full (dalam area terbatas) dan badge ekspresi di kanan atas. Klik kartu untuk melihat gambar ukuran penuh & detail.</p>
 
   <section class="grid" id="grid">
-    <!-- each card: data-* attributes used by JS to open modal -->
-    <div class="card" data-img="source/bisindo/BISINDO_PILIH.png" data-title="1. PILIH KARAKTER" data-desc="Pilih karakter sesuai pakem: Panji, Sekartaji, Gunungsari, Ragil Kuning, Klana, Bapang.">
+    <!-- contoh kartu; copy/paste dan ubah data- untuk tiap langkah -->
+    <article class="card" data-img="source/bisindo/BISINDO_PILIH.png" data-title="1. PILIH KARAKTER" data-desc="Pilih karakter: Panji, Sekartaji, Gunungsari, Ragil Kuning, Klana, Bapang." data-emoji="🙂">
+      <div class="badge">🙂</div>
+      <div class="img-wrap"><img src="source/bisindo/BISINDO_PILIH.png" alt="Pilih Karakter"></div>
       <div class="title">1. PILIH KARAKTER</div>
-      <img src="source/bisindo/BISINDO_PILIH.png" alt="Pilih Karakter">
       <a class="btn">PILIH</a>
-    </div>
+    </article>
 
-    <div class="card" data-img="source/bisindo/BISINDO_SALIN.png" data-title="2. SALIN POLA" data-desc="Salin pola/sketsa ke media kayu menggunakan karbon agar proporsi terjaga.">
+    <article class="card" data-img="source/bisindo/BISINDO_SALIN.png" data-title="2. SALIN POLA" data-desc="Salin pola/sketsa ke kayu, gunakan karbon agar akurat." data-emoji="😐">
+      <div class="badge">😐</div>
+      <div class="img-wrap"><img src="source/bisindo/BISINDO_SALIN.png" alt="Salin Pola"></div>
       <div class="title">2. SALIN POLA</div>
-      <img src="source/bisindo/BISINDO_SALIN.png" alt="Salin Pola">
       <a class="btn">SALIN</a>
-    </div>
+    </article>
 
-    <div class="card" data-img="source/bisindo/BISINDO_PAHAT.png" data-title="3. PAHAT DASAR" data-desc="Lakukan blocking pahat untuk membentuk dasar wajah; sisakan bahan untuk koreksi.">
+    <article class="card" data-img="source/bisindo/BISINDO_PAHAT.png" data-title="3. PAHAT DASAR" data-desc="Blocking pahat untuk bentuk dasar wajah." data-emoji="😮">
+      <div class="badge">😮</div>
+      <div class="img-wrap"><img src="source/bisindo/BISINDO_PAHAT.png" alt="Pahat Dasar"></div>
       <div class="title">3. PAHAT DASAR</div>
-      <img src="source/bisindo/BISINDO_PAHAT.png" alt="Pahat Dasar">
       <a class="btn">PAHAT</a>
-    </div>
+    </article>
 
-    <div class="card" data-img="source/bisindo/BISINDO_AMPLAS.png" data-title="4. AMPLAS BERTAHAP" data-desc="Proses ampelas bertahap sampai permukaan halus; periksa simetri.">
+    <article class="card" data-img="source/bisindo/BISINDO_AMPLAS.png" data-title="4. AMPLAS BERTAHAP" data-desc="Amplas bertahap untuk permukaan halus." data-emoji="😕">
+      <div class="badge">😕</div>
+      <div class="img-wrap"><img src="source/bisindo/BISINDO_AMPLAS.png" alt="Amplas"></div>
       <div class="title">4. AMPLAS BERTAHAP</div>
-      <img src="source/bisindo/BISINDO_AMPLAS.png" alt="Amplas">
       <a class="btn">AMPLAS</a>
-    </div>
+    </article>
 
-    <div class="card" data-img="source/bisindo/BISINDO_SEALER.png" data-title="5. SEALER / FILLER" data-desc="Tutup pori dengan sealer/wood filler, keringkan, lalu amplas halus.">
+    <article class="card" data-img="source/bisindo/BISINDO_SEALER.png" data-title="5. SEALER/FILLER" data-desc="Tutup pori dengan sealer; amplas halus setelah kering." data-emoji="🙂">
+      <div class="badge">🙂</div>
+      <div class="img-wrap"><img src="source/bisindo/BISINDO_SEALER.png" alt="Sealer"></div>
       <div class="title">5. SEALER/FILLER</div>
-      <img src="source/bisindo/BISINDO_SEALER.png" alt="Sealer">
       <a class="btn">SEALER</a>
-    </div>
+    </article>
 
-    <div class="card" data-img="source/bisindo/BISINDO_CAT.png" data-title="6. CAT WARNA" data-desc="Cat dasar & teruskan ornamen warna sesuai karakter; biarkan kering antar layer.">
+    <article class="card" data-img="source/bisindo/BISINDO_CAT.png" data-title="6. CAT WARNA" data-desc="Cat dasar & ornamen; biarkan kering antar layer." data-emoji="🙂">
+      <div class="badge">🙂</div>
+      <div class="img-wrap"><img src="source/bisindo/BISINDO_CAT.png" alt="Cat Warna"></div>
       <div class="title">6. CAT WARNA</div>
-      <img src="source/bisindo/BISINDO_CAT.png" alt="Cat Warna">
       <a class="btn">CAT</a>
-    </div>
+    </article>
 
-    <div class="card" data-img="source/bisindo/BISINDO_VERNIS.png" data-title="7. VERNIS" data-desc="Lapisi vernis tipis merata; hindari gelembung; keringkan di area bersih.">
+    <article class="card" data-img="source/bisindo/BISINDO_VERNIS.png" data-title="7. VERNIS" data-desc="Vernis tipis merata; keringkan di area bersih." data-emoji="🙂">
+      <div class="badge">🙂</div>
+      <div class="img-wrap"><img src="source/bisindo/BISINDO_VERNIS.png" alt="Vernis"></div>
       <div class="title">7. VERNIS</div>
-      <img src="source/bisindo/BISINDO_VERNIS.png" alt="Vernis">
       <a class="btn">VERNIS</a>
-    </div>
+    </article>
 
-    <div class="card" data-img="source/bisindo/BISINDO_PERIKSA.png" data-title="8. QC / CEK" data-desc="Cek proporsi, cat, dan kehalusan; catat perbaikan jika ada.">
-      <div class="title">8. QC / CEK</div>
-      <img src="source/bisindo/BISINDO_PERIKSA.png" alt="QC">
+    <article class="card" data-img="source/bisindo/BISINDO_PERIKSA.png" data-title="8. QC / PERIKSA" data-desc="Cek proporsi & catatan perbaikan jika ada." data-emoji="🙂">
+      <div class="badge">🙂</div>
+      <div class="img-wrap"><img src="source/bisindo/BISINDO_PERIKSA.png" alt="QC"></div>
+      <div class="title">8. QC / PERIKSA</div>
       <a class="btn">PERIKSA</a>
-    </div>
+    </article>
 
-    <div class="card" data-img="source/bisindo/BISINDO_KEMAS.png" data-title="9. KEMAS" data-desc="Kemasi dengan bubble wrap + silica gel; gunakan label 'Fragile' jika perlu.">
+    <article class="card" data-img="source/bisindo/BISINDO_KEMAS.png" data-title="9. KEMAS" data-desc="Kemasi dengan bubble wrap + silica gel; label 'Fragile'." data-emoji="🙂">
+      <div class="badge">🙂</div>
+      <div class="img-wrap"><img src="source/bisindo/BISINDO_KEMAS.png" alt="Kemas"></div>
       <div class="title">9. KEMAS</div>
-      <img src="source/bisindo/BISINDO_KEMAS.png" alt="Kemas">
       <a class="btn">KEMAS</a>
-    </div>
+    </article>
+
   </section>
 </main>
 
+<!-- Modal -->
 <div id="modal" class="modal-back" role="dialog" aria-hidden="true">
   <div class="modal" role="document" aria-modal="true">
     <header>
       <h2 id="modal-title"></h2>
-      <button id="close" aria-label="Tutup" class="btn-ghost">Tutup ✕</button>
+      <button id="close" class="btn-ghost" aria-label="Tutup">Tutup ✕</button>
     </header>
 
-    <div class="modal-body">
+    <div class="body">
       <img id="modal-img" src="" alt="">
       <div class="meta">
         <p id="modal-desc"></p>
         <div class="actions">
           <a id="download-link" class="btn-ghost" download>Unduh gambar</a>
-          <a href="video.html" class="btn-ghost">Lihat Video (hubungan)</a>
           <a href="index.html" class="btn-ghost">Kembali Halaman Utama</a>
         </div>
       </div>
@@ -150,6 +167,8 @@
 </div>
 
 <script>
+  // buka modal saat klik kartu
+  const grid = document.getElementById('grid');
   const modalBack = document.getElementById('modal');
   const modalTitle = document.getElementById('modal-title');
   const modalImg = document.getElementById('modal-img');
@@ -157,39 +176,39 @@
   const downloadLink = document.getElementById('download-link');
   const closeBtn = document.getElementById('close');
 
-  document.getElementById('grid').addEventListener('click', e => {
+  grid.addEventListener('click', (e) => {
     const card = e.target.closest('.card');
     if (!card) return;
     const img = card.dataset.img;
-    const title = card.dataset.title;
+    const title = card.dataset.title || '';
     const desc = card.dataset.desc || '';
     modalTitle.textContent = title;
     modalImg.src = img;
     modalImg.alt = title;
     modalDesc.textContent = desc;
     downloadLink.href = img;
-    downloadLink.setAttribute('download', img.split('/').pop() || 'bisindo.png');
+    downloadLink.setAttribute('download', img.split('/').pop());
 
     modalBack.style.display = 'flex';
-    modalBack.setAttribute('aria-hidden','false');
+    modalBack.setAttribute('aria-hidden', 'false');
   });
 
   closeBtn.addEventListener('click', () => {
     modalBack.style.display = 'none';
-    modalBack.setAttribute('aria-hidden','true');
+    modalBack.setAttribute('aria-hidden', 'true');
   });
 
   modalBack.addEventListener('click', (ev) => {
     if (ev.target === modalBack) {
       modalBack.style.display = 'none';
-      modalBack.setAttribute('aria-hidden','true');
+      modalBack.setAttribute('aria-hidden', 'true');
     }
   });
 
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       modalBack.style.display = 'none';
-      modalBack.setAttribute('aria-hidden','true');
+      modalBack.setAttribute('aria-hidden', 'true');
     }
   });
 </script>
