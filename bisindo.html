@@ -19,52 +19,34 @@
   .logo-row{display:flex;gap:18px;justify-content:center;align-items:center;margin-bottom:8px}
   .logo-row img{height:56px;object-fit:contain}
   header h1{margin:6px 0 0;font-size:20px}
-  main{max-width:1150px;margin:26px auto;padding:0 14px}
-
+  main{max-width:1200px;margin:26px auto;padding:0 18px}
   .lead{text-align:center;color:var(--muted);margin-bottom:22px}
-
-  /* grid */
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .card{
-    background:var(--card-bg);border-radius:12px;padding:10px;text-align:center;
-    box-shadow:0 6px 18px rgba(0,0,0,0.06);cursor:pointer;border:1px solid #f0e9e1;
-    transition:transform .14s ease, box-shadow .14s;
-    overflow:visible;position:relative;
-  }
-  .card:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(0,0,0,0.12)}
-  .card .title{font-weight:700;margin:10px 0 8px}
-  /* image container keeps consistent height; object-fit cover displays 'full-like' */
-  .img-wrap{position:relative;width:100%;height:160px;border-radius:8px;overflow:hidden;border:1px solid #eee;background:#fafafa}
-  .img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
-
-  /* badge (emoji) top-right */
-  .badge{
-    position:absolute;right:14px;top:12px;background:rgba(255,255,255,0.95);padding:6px;border-radius:999px;border:1px solid rgba(0,0,0,0.06);
-    box-shadow:0 4px 10px rgba(0,0,0,0.06);font-size:18px;line-height:1;z-index:6;
-  }
-
-  .card .btn{display:inline-block;background:var(--accent);color:#fff;padding:8px 14px;border-radius:999px;text-decoration:none;font-weight:700;margin-top:12px}
-
-  /* modal */
-  .modal-back{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;padding:16px;z-index:999}
-  .modal{background:#fff;border-radius:10px;max-width:980px;width:100%;max-height:92vh;overflow:auto;padding:18px;box-shadow:0 24px 60px rgba(0,0,0,0.4)}
-  .modal header{display:flex;justify-content:space-between;align-items:center}
-  .modal header h2{margin:0;font-size:18px}
-  .modal .body{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}
-  .modal .body img{max-width:640px;width:100%;height:auto;border-radius:8px;border:3px solid var(--orange)}
-  .modal .meta{flex:1;min-width:220px}
-  .modal p{color:var(--muted);line-height:1.6}
-
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:var(--card-bg);border-radius:12px;padding:14px;text-align:center;box-shadow:0 8px 22px rgba(0,0,0,0.06);cursor:pointer;border:1px solid #f0e9e1;transition:transform .14s ease,box-shadow .14s;position:relative;overflow:visible}
+  .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,0.12)}
+  .card .title{font-weight:700;margin:12px 0 8px}
+  .img-wrap{position:relative;width:100%;height:260px;border-radius:10px;overflow:hidden;border:1px solid #eee;background:#fafafa;display:flex;align-items:center;justify-content:center}
+  .img-wrap img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+  .badge{position:absolute;right:18px;top:14px;background:rgba(255,255,255,0.98);padding:8px;border-radius:999px;border:1px solid rgba(0,0,0,0.06);box-shadow:0 6px 14px rgba(0,0,0,0.06);font-size:20px;line-height:1;z-index:6}
+  .card .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 16px;border-radius:999px;text-decoration:none;font-weight:700;margin-top:12px}
+  .modal-back{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:999}
+  .modal{background:#fff;border-radius:10px;max-width:1000px;width:100%;max-height:92vh;overflow:auto;padding:18px;box-shadow:0 24px 60px rgba(0,0,0,0.4)}
+  .modal header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:8px;border-bottom:1px solid #f0e6e0}
+  .modal header h2{margin:0;font-size:20px;color:var(--orange)}
+  .modal .body{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px}
+  .modal .body img{max-width:640px;width:100%;height:auto;border-radius:8px;border:3px solid var(--orange);box-shadow:0 12px 30px rgba(0,0,0,0.08)}
+  .modal .meta{flex:1;min-width:240px;display:flex;flex-direction:column;gap:10px}
+  .modal p{color:var(--muted);line-height:1.6;margin:0}
   .modal .actions{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
-  .btn-ghost{background:#f2f2f2;padding:8px 12px;border-radius:8px;text-decoration:none;color:#333}
-
-  /* responsive */
-  @media(max-width:920px){.grid{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:560px){.grid{grid-template-columns:1fr}.img-wrap{height:140px}}
+  .btn-ghost{background:#f2f2f2;padding:10px 14px;border-radius:8px;text-decoration:none;color:#333}
+  .btn-back{display:inline-block;background:var(--orange);color:#fff;font-weight:600;text-decoration:none;padding:10px 20px;border-radius:8px;transition:background .2s ease,transform .15s ease;box-shadow:0 4px 10px rgba(0,0,0,0.1);margin:40px auto 0 auto}
+  .btn-back:hover{background:#ff943d;transform:translateY(-2px);box-shadow:0 6px 14px rgba(0,0,0,0.15)}
+  .btn-back-wrap{text-align:center}
+  @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.grid{grid-template-columns:1fr}.img-wrap{height:190px}.logo-row img{height:48px}}
 </style>
 </head>
 <body>
-
 <header>
   <div class="logo-row">
     <img src="source/Machung.svg" alt="Ma Chung">
@@ -75,10 +57,9 @@
 </header>
 
 <main>
-  <p class="lead">Setiap kartu menampilkan gambar full (dalam area terbatas) dan badge ekspresi di kanan atas. Klik kartu untuk melihat gambar ukuran penuh & detail.</p>
+  <p class="lead">Setiap kartu menampilkan gambar full (dalam area terbatas) dan badge ekspresi di kanan atas. Klik kartu untuk memperbesar, atau lihat langsung di kartu.</p>
 
   <section class="grid" id="grid">
-    <!-- contoh kartu; copy/paste dan ubah data- untuk tiap langkah -->
     <article class="card" data-img="source/bisindo/BISINDO_PILIH.png" data-title="1. PILIH KARAKTER" data-desc="Pilih karakter: Panji, Sekartaji, Gunungsari, Ragil Kuning, Klana, Bapang." data-emoji="🙂">
       <div class="badge">🙂</div>
       <div class="img-wrap"><img src="source/bisindo/BISINDO_PILIH.png" alt="Pilih Karakter"></div>
@@ -93,124 +74,64 @@
       <a class="btn">SALIN</a>
     </article>
 
-    <article class="card" data-img="source/bisindo/BISINDO_PAHAT.png" data-title="3. PAHAT DASAR" data-desc="Blocking pahat untuk bentuk dasar wajah." data-emoji="😮">
+    <article class="card" data-img="source/bisindo/BISINDO_PAHAT.png" data-title="3. PAHAT DASAR" data-desc="Blocking pahat untuk membentuk dasar wajah; sisakan bahan untuk koreksi." data-emoji="😮">
       <div class="badge">😮</div>
       <div class="img-wrap"><img src="source/bisindo/BISINDO_PAHAT.png" alt="Pahat Dasar"></div>
       <div class="title">3. PAHAT DASAR</div>
       <a class="btn">PAHAT</a>
     </article>
 
-    <article class="card" data-img="source/bisindo/BISINDO_AMPLAS.png" data-title="4. AMPLAS BERTAHAP" data-desc="Amplas bertahap untuk permukaan halus." data-emoji="😕">
+    <article class="card" data-img="source/bisindo/BISINDO_AMPLAS.png" data-title="4. AMPLAS BERTAHAP" data-desc="Amplas bertahap sampai permukaan halus; periksa simetri." data-emoji="😕">
       <div class="badge">😕</div>
       <div class="img-wrap"><img src="source/bisindo/BISINDO_AMPLAS.png" alt="Amplas"></div>
       <div class="title">4. AMPLAS BERTAHAP</div>
       <a class="btn">AMPLAS</a>
     </article>
 
-    <article class="card" data-img="source/bisindo/BISINDO_SEALER.png" data-title="5. SEALER/FILLER" data-desc="Tutup pori dengan sealer; amplas halus setelah kering." data-emoji="🙂">
+    <article class="card" data-img="source/bisindo/BISINDO_SEALER.png" data-title="5. SEALER / FILLER" data-desc="Tutup pori dengan sealer/wood filler, keringkan, lalu amplas halus." data-emoji="🙂">
       <div class="badge">🙂</div>
       <div class="img-wrap"><img src="source/bisindo/BISINDO_SEALER.png" alt="Sealer"></div>
       <div class="title">5. SEALER/FILLER</div>
       <a class="btn">SEALER</a>
     </article>
 
-    <article class="card" data-img="source/bisindo/BISINDO_CAT.png" data-title="6. CAT WARNA" data-desc="Cat dasar & ornamen; biarkan kering antar layer." data-emoji="🙂">
+    <article class="card" data-img="source/bisindo/BISINDO_CAT.png" data-title="6. CAT WARNA" data-desc="Cat dasar & ornamen warna sesuai karakter; biarkan kering antar layer." data-emoji="🙂">
       <div class="badge">🙂</div>
       <div class="img-wrap"><img src="source/bisindo/BISINDO_CAT.png" alt="Cat Warna"></div>
       <div class="title">6. CAT WARNA</div>
       <a class="btn">CAT</a>
     </article>
 
-    <article class="card" data-img="source/bisindo/BISINDO_VERNIS.png" data-title="7. VERNIS" data-desc="Vernis tipis merata; keringkan di area bersih." data-emoji="🙂">
+    <article class="card" data-img="source/bisindo/BISINDO_VERNIS.png" data-title="7. VERNIS" data-desc="Lapisi vernis tipis merata; hindari gelembung; keringkan di area bersih." data-emoji="🙂">
       <div class="badge">🙂</div>
       <div class="img-wrap"><img src="source/bisindo/BISINDO_VERNIS.png" alt="Vernis"></div>
       <div class="title">7. VERNIS</div>
       <a class="btn">VERNIS</a>
     </article>
 
-    <article class="card" data-img="source/bisindo/BISINDO_PERIKSA.png" data-title="8. QC / PERIKSA" data-desc="Cek proporsi & catatan perbaikan jika ada." data-emoji="🙂">
+    <article class="card" data-img="source/bisindo/BISINDO_PERIKSA.png" data-title="8. QC / PERIKSA" data-desc="Cek proporsi, cat, dan kehalusan; catat perbaikan jika ada." data-emoji="🙂">
       <div class="badge">🙂</div>
       <div class="img-wrap"><img src="source/bisindo/BISINDO_PERIKSA.png" alt="QC"></div>
       <div class="title">8. QC / PERIKSA</div>
       <a class="btn">PERIKSA</a>
     </article>
 
-    <article class="card" data-img="source/bisindo/BISINDO_KEMAS.png" data-title="9. KEMAS" data-desc="Kemasi dengan bubble wrap + silica gel; label 'Fragile'." data-emoji="🙂">
+    <article class="card" data-img="source/bisindo/BISINDO_KEMAS.png" data-title="9. KEMAS" data-desc="Kemasi dengan bubble wrap + silica gel; gunakan label 'Fragile' jika perlu." data-emoji="🙂">
       <div class="badge">🙂</div>
       <div class="img-wrap"><img src="source/bisindo/BISINDO_KEMAS.png" alt="Kemas"></div>
       <div class="title">9. KEMAS</div>
       <a class="btn">KEMAS</a>
     </article>
-
   </section>
+
+  <div class="btn-back-wrap">
+    <a href="index.html" class="btn-back">← Kembali ke Halaman Utama</a>
+  </div>
 </main>
 
-<!-- Modal -->
-<div id="modal" class="modal-back" role="dialog" aria-hidden="true">
-  <div class="modal" role="document" aria-modal="true">
-    <header>
-      <h2 id="modal-title"></h2>
-      <button id="close" class="btn-ghost" aria-label="Tutup">Tutup ✕</button>
-    </header>
-
-    <div class="body">
-      <img id="modal-img" src="" alt="">
-      <div class="meta">
-        <p id="modal-desc"></p>
-        <div class="actions">
-          <a id="download-link" class="btn-ghost" download>Unduh gambar</a>
-          <a href="index.html" class="btn-ghost">Kembali Halaman Utama</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <script>
-  // buka modal saat klik kartu
-  const grid = document.getElementById('grid');
-  const modalBack = document.getElementById('modal');
-  const modalTitle = document.getElementById('modal-title');
-  const modalImg = document.getElementById('modal-img');
-  const modalDesc = document.getElementById('modal-desc');
-  const downloadLink = document.getElementById('download-link');
-  const closeBtn = document.getElementById('close');
-
-  grid.addEventListener('click', (e) => {
-    const card = e.target.closest('.card');
-    if (!card) return;
-    const img = card.dataset.img;
-    const title = card.dataset.title || '';
-    const desc = card.dataset.desc || '';
-    modalTitle.textContent = title;
-    modalImg.src = img;
-    modalImg.alt = title;
-    modalDesc.textContent = desc;
-    downloadLink.href = img;
-    downloadLink.setAttribute('download', img.split('/').pop());
-
-    modalBack.style.display = 'flex';
-    modalBack.setAttribute('aria-hidden', 'false');
-  });
-
-  closeBtn.addEventListener('click', () => {
-    modalBack.style.display = 'none';
-    modalBack.setAttribute('aria-hidden', 'true');
-  });
-
-  modalBack.addEventListener('click', (ev) => {
-    if (ev.target === modalBack) {
-      modalBack.style.display = 'none';
-      modalBack.setAttribute('aria-hidden', 'true');
-    }
-  });
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      modalBack.style.display = 'none';
-      modalBack.setAttribute('aria-hidden', 'true');
-    }
-  });
+  const grid=document.getElementById('grid')
+  const modalBack=document.getElementById('modal')
 </script>
 </body>
 </html>
