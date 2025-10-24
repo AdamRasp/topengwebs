@@ -1,92 +1,115 @@
 <!doctype html>
 <html lang="id">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Landscape - SOP Pembuatan Topeng Malangan</title>
 <style>
   :root{
-    --orange: #f77c21;
-    --black: #111;
-    --white: #fff;
-    --gray: #666;
+    --orange:#f77c21;
+    --black:#111;
+    --white:#fff;
+    --muted:#f7f0ec;
+    --card-bg:#fff;
+    --text-muted:#666;
     font-family: "Poppins", sans-serif;
   }
   *{box-sizing:border-box}
   body{
     margin:0;
-    background:#fffaf5;
+    background:var(--muted);
     color:var(--black);
     min-height:100vh;
     display:flex;
     flex-direction:column;
   }
 
-  /* header (sama style dengan index/video) */
   header{
     background: linear-gradient(180deg,var(--orange) 0%, #ffb15a 100%);
-    padding:20px 0 30px;
+    padding:18px 12px 26px;
     color:white;
     text-align:center;
-    box-shadow:0 4px 10px rgba(0,0,0,0.18);
+    box-shadow:0 4px 10px rgba(0,0,0,0.12);
   }
-  .logo-row{display:flex;justify-content:center;gap:30px;align-items:center;margin-bottom:12px}
-  .logo-row img{height:70px;object-fit:contain}
-  header h1{margin:0;font-size:26px;font-weight:700}
-  header p{margin:6px 0 0;color:rgba(255,255,255,0.92);font-size:14px}
+  .logo-row{display:flex;justify-content:center;gap:26px;align-items:center;margin-bottom:10px}
+  .logo-row img{height:60px;object-fit:contain}
+  header h1{margin:0;font-size:20px;font-weight:700}
+  header p{margin:6px 0 0;color:rgba(255,255,255,0.95);font-size:13px}
 
-  /* content */
-  main{flex:1;padding:40px 18px 60px}
-  main .lead{max-width:900px;margin:0 auto 30px;color:var(--gray);text-align:center;line-height:1.6}
-  .table-wrap{max-width:1200px;margin:20px auto;overflow:auto;background:white;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.06);padding:12px}
+  main{flex:1;padding:30px 18px;max-width:1200px;margin:0 auto;width:100%}
+  .intro{max-width:900px;margin:0 auto 22px;text-align:center;color:var(--text-muted);line-height:1.6}
 
-  table{
-    width:100%;
-    border-collapse:collapse;
-    table-layout:fixed;
-    min-width:1000px;
-    font-size:14px;
-  }
-  th, td{
-    border:1px solid #bbb;
-    padding:10px;
-    vertical-align:top;
-  }
-  th{background:#f7f7f7;color:var(--black);text-align:left}
-  td img.step-img{width:100%;height:auto;display:block;border-radius:6px;max-height:180px;object-fit:contain}
-
-  /* step number column small */
-  td.step-no{width:60px;text-align:center;font-weight:700}
-  td.col-gambar{width:280px}
-  td.col-instruksi{width:420px}
-  td.col-small{width:100px}
-
-  /* mobile adjustments */
-  @media (max-width:900px){
-    td.col-gambar{width:200px}
-    table{font-size:13px}
-    .logo-row img{height:56px}
-  }
-  @media (max-width:600px){
-    table{min-width:600px}
-    .logo-row img{height:48px}
-    td.step-no{width:48px}
+  .cards{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:18px;
+    align-items:start;
   }
 
-  /* footer */
-  footer{
-    background:var(--black);
-    color:white;
-    text-align:center;
-    padding:14px 0;
-    font-size:14px;
+  .card{
+    background:var(--card-bg);
+    border-radius:10px;
+    padding:16px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.06);
+    border-top:6px solid rgba(0,0,0,0.02);
+    display:flex;
+    gap:14px;
   }
-  footer span{color:var(--orange)}
-  /* link back */
-  .back{
-    display:inline-block;margin-top:18px;background:var(--orange);color:white;padding:8px 16px;border-radius:8px;text-decoration:none;font-weight:600;
+
+  .card .left{
+    width:220px;
+    min-width:160px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    align-items:center;
   }
+  .step-num{
+    width:64px;height:64px;border-radius:8px;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;box-shadow:0 4px 10px rgba(0,0,0,0.06)
+  }
+  .step-title{font-weight:700;text-align:center;margin-top:6px}
+  .thumb{width:100%;border-radius:8px;overflow:hidden;background:#fafafa;border:1px solid #eee}
+  .thumb img{width:100%;height:120px;object-fit:contain;display:block}
+
+  .card .right{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .card .right p.short{color:var(--text-muted);margin:0}
+  .meta-grid{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:8px;
+    margin-top:8px;
+  }
+  .meta{
+    background:#fafafa;border-radius:6px;padding:8px;border:1px solid #eee;font-size:13px;color:#333;
+    min-height:46px;
+  }
+  .meta h4{margin:0 0 6px;font-size:13px;color:var(--orange)}
+  .meta p{margin:0;color:var(--text-muted);font-size:13px;line-height:1.35}
+
+  .instr{
+    background:#fff;border-radius:6px;padding:10px;border:1px solid #f0e6e0;color:var(--text-muted);font-size:14px;line-height:1.5
+  }
+
+  .actions{display:flex;justify-content:center;margin-top:18px;gap:12px}
+  .back{background:var(--orange);color:white;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:600}
   .back:hover{background:#ff8f3a}
+
+  @media (max-width:920px){
+    .cards{grid-template-columns:1fr}
+    .card{flex-direction:row}
+    .thumb img{height:90px}
+  }
+  @media (max-width:520px){
+    .card{flex-direction:column;align-items:center;text-align:center}
+    .left{width:100%}
+    .meta-grid{grid-template-columns:repeat(2,1fr)}
+    .meta{min-height:56px}
+  }
 </style>
 </head>
 <body>
@@ -102,155 +125,200 @@
 </header>
 
 <main>
-  <p class="lead">
-    Halaman versi landscape menampilkan langkah-langkah SOP (gambar + ringkasan instruksi).  
-    Klik <strong>Landscape</strong> di halaman utama untuk kembali — atau gunakan tombol di bawah.
-  </p>
+  <p class="intro">Versi landscape menampilkan setiap langkah dalam kotak terpisah untuk kemudahan bacaan. Klik tombol kembali jika ingin ke halaman utama.</p>
 
-  <div class="table-wrap">
-    <table role="table" aria-label="SOP Pembuatan Topeng Malangan">
-      <thead>
-        <tr>
-          <th>Step</th>
-          <th>Gambar</th>
-          <th>Instruksi SOP (singkat)</th>
-          <th>Alat &amp; Bahan</th>
-          <th>K3 &amp; Akses</th>
-          <th>QC</th>
-          <th>Output</th>
-        </tr>
-      </thead>
-      <tbody>
+  <div class="cards">
 
-        <!-- 1. Desain -->
-        <tr>
-          <td class="step-no">1</td>
-          <td class="col-gambar"><img class="step-img" src="source/Desain.png" alt="Desain"></td>
-          <td class="col-instruksi">
-            Pilih karakter (Panji, Sekartaji, Gunungsari, Ragil Kuning, Klana, Bapang). 
-            Riset bentuk, warna, dan ekspresi sesuai pakem. Buat sketsa proporsi wajah di kertas: garis tengah, titik mata, pangkal hidung, mulut. Siapkan ukuran S/M agar konsisten.
-          </td>
-          <td class="col-small">Kertas pola, pensil, penggaris</td>
-          <td class="col-small">Area rapi &amp; terang; meja untuk akses</td>
-          <td class="col-small">Sketsa rapi; garis tengah jelas</td>
-          <td class="col-small">Sketsa siap ditransfer</td>
-        </tr>
+    <article class="card" id="step-1">
+      <div class="left">
+        <div class="step-num">1</div>
+        <div class="step-title">Desain</div>
+        <div class="thumb"><img src="source/Desain.png" alt="Desain"></div>
+      </div>
+      <div class="right">
+        <div class="instr">
+          <strong>Instruksi:</strong>
+          <p>Pilih karakter (Panji, Sekartaji, Gunungsari, Ragil Kuning, Klana, Bapang). Riset bentuk, warna, dan ekspresi sesuai pakem. Buat sketsa proporsi wajah di kertas: garis tengah, titik mata, pangkal hidung dan mulut. Siapkan ukuran S/M agar konsisten.</p>
+        </div>
 
-        <!-- 2. Transfer gambar -->
-        <tr>
-          <td class="step-no">2</td>
-          <td class="col-gambar"><img class="step-img" src="source/Transfer.png" alt="Transfer"></td>
-          <td class="col-instruksi">
-            Tempel sketsa pada kayu (tebal ±3–4 mm). Gunakan kertas karbon untuk menyalin; tekan merata agar garis jelas. Tandai titik kontrol (mata, hidung, bibir) dan kontur rambut/mahkota. Pastikan simetri kiri–kanan.
-          </td>
-          <td class="col-small">Kayu 3–4 cm, kertas karbon, selotip</td>
-          <td class="col-small">Gunakan stencil berlubang agar tracing stabil; meja tidak licin</td>
-          <td class="col-small">Letak fitur simetris; garis tidak meluber</td>
-          <td class="col-small">Pola di kayu rapi</td>
-        </tr>
+        <div class="meta-grid">
+          <div class="meta"><h4>Alat &amp; Bahan</h4><p>Kertas pola, pensil, penggaris</p></div>
+          <div class="meta"><h4>K3 &amp; Akses</h4><p>Area rapi &amp; terang; meja kerja</p></div>
+          <div class="meta"><h4>QC</h4><p>Sketsa rapi; garis tengah jelas</p></div>
+          <div class="meta"><h4>Output</h4><p>Sketsa siap ditransfer</p></div>
+        </div>
+      </div>
+    </article>
 
-        <!-- 3. Pahat dasar -->
-        <tr>
-          <td class="step-no">3</td>
-          <td class="col-gambar"><img class="step-img" src="source/Pahat.png" alt="Pahat"></td>
-          <td class="col-instruksi">
-            Mulai blocking: bentuk oval wajah, dahi, tulang pipi, tonjolan hidung. Gunakan pahat besar &amp; palu; arahkan pahat mengikuti serat kayu untuk mencegah retak. Sisakan cadangan ketebalan 5–7 mm untuk koreksi.
-          </td>
-          <td class="col-small">Pahat besar, palu kayu, ragum/jig</td>
-          <td class="col-small">Kacamata, sarung tangan; earplug jika perlu</td>
-          <td class="col-small">Permukaan tidak retak; bentuk dasar proporsional</td>
-          <td class="col-small">Bentuk dasar terbentuk</td>
-        </tr>
+    <article class="card" id="step-2">
+      <div class="left">
+        <div class="step-num">2</div>
+        <div class="step-title">Transfer</div>
+        <div class="thumb"><img src="source/Transfer.png" alt="Transfer"></div>
+      </div>
+      <div class="right">
+        <div class="instr">
+          <strong>Instruksi:</strong>
+          <p>Tempel sketsa pada kayu (tebal ±3–4 mm). Gunakan kertas karbon untuk menyalin; tekan merata agar garis jelas. Tandai titik kontrol (mata, hidung, bibir) dan kontur rambut/mahkota. Pastikan simetri kiri–kanan.</p>
+        </div>
+        <div class="meta-grid">
+          <div class="meta"><h4>Alat &amp; Bahan</h4><p>Kayu 3–4 cm, kertas karbon, selotip</p></div>
+          <div class="meta"><h4>K3 &amp; Akses</h4><p>Gunakan stencil berlubang; meja stabil</p></div>
+          <div class="meta"><h4>QC</h4><p>Letak fitur simetris; garis tidak meluber</p></div>
+          <div class="meta"><h4>Output</h4><p>Pola di kayu rapi</p></div>
+        </div>
+      </div>
+    </article>
 
-        <!-- 4. Pahat detail & amplas -->
-        <tr>
-          <td class="step-no">4</td>
-          <td class="col-gambar"><img class="step-img" src="source/Amplas.png" alt="Amplas"></td>
-          <td class="col-instruksi">
-            Rinci kelopak mata, bibir, alis, dan garis pipi menggunakan pahat kecil (V, U). Kikis gelombang dengan kikir, lanjut ampelas bertahap: P120 → P180 → P240 → P400. Periksa simetri dengan penggaris/garis tengah.
-          </td>
-          <td class="col-small">Pahat kecil, kikir/rasp, ampelas P120–P400</td>
-          <td class="col-small">Masker debu; spon ampelas; istirahat berkala</td>
-          <td class="col-small">Halus rata; tepi tidak tajam; simetri</td>
-          <td class="col-small">Siap finishing</td>
-        </tr>
+    <article class="card" id="step-3">
+      <div class="left">
+        <div class="step-num">3</div>
+        <div class="step-title">Pahat</div>
+        <div class="thumb"><img src="source/Pahat.png" alt="Pahat"></div>
+      </div>
+      <div class="right">
+        <div class="instr">
+          <strong>Instruksi:</strong>
+          <p>Mulai blocking: bentuk oval wajah, dahi, tulang pipi, dan tonjolan hidung. Gunakan pahat besar &amp; palu; arahkan pahat mengikuti serat kayu untuk mencegah retak. Sisakan cadangan ketebalan 5–7 mm untuk koreksi.</p>
+        </div>
+        <div class="meta-grid">
+          <div class="meta"><h4>Alat &amp; Bahan</h4><p>Pahat besar, palu kayu, ragum/jig</p></div>
+          <div class="meta"><h4>K3 &amp; Akses</h4><p>Kacamata keselamatan; sarung tangan</p></div>
+          <div class="meta"><h4>QC</h4><p>Permukaan tidak retak; bentuk proporsional</p></div>
+          <div class="meta"><h4>Output</h4><p>Bentuk dasar terbentuk</p></div>
+        </div>
+      </div>
+    </article>
 
-        <!-- 5. Sealer / wood filler -->
-        <tr>
-          <td class="step-no">5</td>
-          <td class="col-gambar"><img class="step-img" src="source/Sealer.png" alt="Sealer"></td>
-          <td class="col-instruksi">
-            Oles sealer/wood filler tipis untuk menutup pori; keringkan sesuai petunjuk. Amplas halus P400 hingga permukaan licin. Ulangi tipis bila pori masih terbuka.
-          </td>
-          <td class="col-small">Sealer/wood filler, kuas halus</td>
-          <td class="col-small">Ventilasi baik; sarung tangan; tempat pengering bersih</td>
-          <td class="col-small">Pori tertutup; permukaan mulus</td>
-          <td class="col-small">Siap dicat</td>
-        </tr>
+    <article class="card" id="step-4">
+      <div class="left">
+        <div class="step-num">4</div>
+        <div class="step-title">Amplas</div>
+        <div class="thumb"><img src="source/Amplas.png" alt="Amplas"></div>
+      </div>
+      <div class="right">
+        <div class="instr">
+          <strong>Instruksi:</strong>
+          <p>Rinci kelopak mata, bibir, alis, dan garis pipi menggunakan pahat kecil (V, U). Kikis gelombang dengan kikir; lanjutkan ampelas bertahap: P120 → P180 → P240 → P400. Periksa simetri dengan garis tengah.</p>
+        </div>
+        <div class="meta-grid">
+          <div class="meta"><h4>Alat &amp; Bahan</h4><p>Pahat kecil, kikir/rasp, amplas P120–P400</p></div>
+          <div class="meta"><h4>K3 &amp; Akses</h4><p>Masker debu; spons ampelas; istirahat berkala</p></div>
+          <div class="meta"><h4>QC</h4><p>Halus rata; tepi tidak tajam</p></div>
+          <div class="meta"><h4>Output</h4><p>Siap finishing</p></div>
+        </div>
+      </div>
+    </article>
 
-        <!-- 6. Cat polikrom -->
-        <tr>
-          <td class="step-no">6</td>
-          <td class="col-gambar"><img class="step-img" src="source/Cat.png" alt="Cat"></td>
-          <td class="col-instruksi">
-            Beri cat dasar (base coat) warna kulit; lanjutkan warna utama karakter; tambahkan detail (alis, mata, bibir, ornamen). Biarkan kering setiap layer di rak. Gunakan pedoman warna karakter.
-          </td>
-          <td class="col-small">Cat akrilik, kuas halus, rak pengering</td>
-          <td class="col-small">Masker uap ringan; area bersih</td>
-          <td class="col-small">Warna rata; bersih; tidak belepotan</td>
-          <td class="col-small">Wajah &amp; ornamen selesai</td>
-        </tr>
+    <article class="card" id="step-5">
+      <div class="left">
+        <div class="step-num">5</div>
+        <div class="step-title">Sealer</div>
+        <div class="thumb"><img src="source/Sealer.png" alt="Sealer"></div>
+      </div>
+      <div class="right">
+        <div class="instr">
+          <strong>Instruksi:</strong>
+          <p>Oles sealer/wood filler tipis untuk menutup pori; keringkan sesuai petunjuk. Amplas halus P400 hingga permukaan licin. Ulangi tipis bila pori masih terbuka.</p>
+        </div>
+        <div class="meta-grid">
+          <div class="meta"><h4>Alat &amp; Bahan</h4><p>Sealer/wood filler, kuas halus</p></div>
+          <div class="meta"><h4>K3 &amp; Akses</h4><p>Ventilasi baik; sarung tangan</p></div>
+          <div class="meta"><h4>QC</h4><p>Pori tertutup; permukaan mulus</p></div>
+          <div class="meta"><h4>Output</h4><p>Siap dicat</p></div>
+        </div>
+      </div>
+    </article>
 
-        <!-- 7. Vernis -->
-        <tr>
-          <td class="step-no">7</td>
-          <td class="col-gambar"><img class="step-img" src="source/Vernis.png" alt="Vernis"></td>
-          <td class="col-instruksi">
-            Oleskan vernis doff/semi-gloss tipis merata. Hindari penumpukan di lekukan. Keringkan di ruang minim debu; uji sentuh di area kecil sebelum dipindah.
-          </td>
-          <td class="col-small">Vernis &amp; kuas</td>
-          <td class="col-small">Ventilasi baik; sarung tangan</td>
-          <td class="col-small">Tidak ada noda/gelembung; kering sempurna</td>
-          <td class="col-small">Permukaan terlindungi</td>
-        </tr>
+    <article class="card" id="step-6">
+      <div class="left">
+        <div class="step-num">6</div>
+        <div class="step-title">Cat</div>
+        <div class="thumb"><img src="source/Cat.png" alt="Cat"></div>
+      </div>
+      <div class="right">
+        <div class="instr">
+          <strong>Instruksi:</strong>
+          <p>Beri cat dasar (base coat) warna kulit; lanjutkan warna utama karakter; tambahkan detail (alis, mata, bibir, ornamen). Biarkan kering setiap layer di rak. Gunakan pedoman warna karakter.</p>
+        </div>
+        <div class="meta-grid">
+          <div class="meta"><h4>Alat &amp; Bahan</h4><p>Cat akrilik, kuas halus, rak pengering</p></div>
+          <div class="meta"><h4>K3 &amp; Akses</h4><p>Masker uap ringan; area bersih</p></div>
+          <div class="meta"><h4>QC</h4><p>Warna rata; bersih</p></div>
+          <div class="meta"><h4>Output</h4><p>Wajah &amp; ornamen selesai</p></div>
+        </div>
+      </div>
+    </article>
 
-        <!-- 8. QC (Quality Control) -->
-        <tr>
-          <td class="step-no">8</td>
-          <td class="col-gambar"><img class="step-img" src="source/QC.png" alt="QC"></td>
-          <td class="col-instruksi">
-            Gunakan kartu QC: cek proporsi &amp; simetri (jarak mata, tinggi hidung, lebar mulut), kehalusan tanpa serpih, cat rata &amp; kering, aksesoris terpasang kuat, kenyamanan bagian dalam.
-          </td>
-          <td class="col-small">Kartu QC/checklist, penggaris, kamera (opsional)</td>
-          <td class="col-small">Checklist bergambar / TTS / BISINDO untuk akses</td>
-          <td class="col-small">Semua poin V; catatan perbaikan jika ada</td>
-          <td class="col-small">Status: Lulus / Perbaikan</td>
-        </tr>
+    <article class="card" id="step-7">
+      <div class="left">
+        <div class="step-num">7</div>
+        <div class="step-title">Vernis</div>
+        <div class="thumb"><img src="source/Vernis.png" alt="Vernis"></div>
+      </div>
+      <div class="right">
+        <div class="instr">
+          <strong>Instruksi:</strong>
+          <p>Oleskan vernis doff/semi-gloss tipis merata. Hindari penumpukan di lekukan. Keringkan di ruang minim debu; uji sentuh di area kecil sebelum dipindah.</p>
+        </div>
+        <div class="meta-grid">
+          <div class="meta"><h4>Alat &amp; Bahan</h4><p>Vernis &amp; kuas</p></div>
+          <div class="meta"><h4>K3 &amp; Akses</h4><p>Ventilasi baik; sarung tangan</p></div>
+          <div class="meta"><h4>QC</h4><p>Tidak ada noda/gelembung</p></div>
+          <div class="meta"><h4>Output</h4><p>Permukaan terlindungi</p></div>
+        </div>
+      </div>
+    </article>
 
-        <!-- 9. Kemasan -->
-        <tr>
-          <td class="step-no">9</td>
-          <td class="col-gambar"><img class="step-img" src="source/Kemas.png" alt="Kemas"></td>
-          <td class="col-instruksi">
-            Lapisi dengan tisu, bubble wrap; masukkan ke kotak beserta silica gel dan kartu cerita/QR; tambahkan label karakter dan stiker "Fragile". Pastikan topeng tidak bergerak saat digoyang.
-          </td>
-          <td class="col-small">Tisu, bubble wrap, kotak, silica gel, label/stiker</td>
-          <td class="col-small">Cutter aman; meja kemas stabil</td>
-          <td class="col-small">Isi tidak bergeser; label jelas</td>
-          <td class="col-small">Siap kirim / titip jual</td>
-        </tr>
+    <article class="card" id="step-8">
+      <div class="left">
+        <div class="step-num">8</div>
+        <div class="step-title">QC</div>
+        <div class="thumb"><img src="source/QC.png" alt="QC"></div>
+      </div>
+      <div class="right">
+        <div class="instr">
+          <strong>Instruksi:</strong>
+          <p>Gunakan kartu QC: cek proporsi &amp; simetri (jarak mata, tinggi hidung, lebar mulut), kehalusan tanpa serpih, cat rata &amp; kering, aksesoris terpasang kuat, kenyamanan bagian dalam.</p>
+        </div>
+        <div class="meta-grid">
+          <div class="meta"><h4>Alat &amp; Bahan</h4><p>Kartu QC/checklist, penggaris, kamera (opsional)</p></div>
+          <div class="meta"><h4>K3 &amp; Akses</h4><p>Checklist bergambar / BISINDO untuk akses</p></div>
+          <div class="meta"><h4>QC</h4><p>Semua poin V; catatan perbaikan jika ada</p></div>
+          <div class="meta"><h4>Output</h4><p>Status: Lulus / Perbaikan</p></div>
+        </div>
+      </div>
+    </article>
 
-      </tbody>
-    </table>
+    <article class="card" id="step-9">
+      <div class="left">
+        <div class="step-num">9</div>
+        <div class="step-title">Kemas</div>
+        <div class="thumb"><img src="source/Kemas.png" alt="Kemas"></div>
+      </div>
+      <div class="right">
+        <div class="instr">
+          <strong>Instruksi:</strong>
+          <p>Lapisi dengan tisu dan bubble wrap; masukkan ke kotak beserta silica gel dan kartu cerita/QR. Tambahkan label karakter dan stiker "Fragile". Pastikan topeng tidak bergerak saat digoyang.</p>
+        </div>
+        <div class="meta-grid">
+          <div class="meta"><h4>Alat &amp; Bahan</h4><p>Tisu, bubble wrap, kotak, silica gel, label/stiker</p></div>
+          <div class="meta"><h4>K3 &amp; Akses</h4><p>Cutter aman; meja kemas stabil</p></div>
+          <div class="meta"><h4>QC</h4><p>Isi tidak bergeser; label jelas</p></div>
+          <div class="meta"><h4>Output</h4><p>Siap kirim / titip jual</p></div>
+        </div>
+      </div>
+    </article>
+
   </div>
 
-  <div style="text-align:center;margin-top:18px">
+  <div class="actions">
     <a class="back" href="index.html">← Kembali ke Halaman Utama</a>
   </div>
 </main>
 
-<footer>
-  © <span>2025</span> — Universitas Ma Chung.
+<footer style="margin-top:auto;padding:14px 0;background:var(--black);color:white;text-align:center">
+  © <span style="color:var(--orange)">2025</span> — Universitas Ma Chung.
 </footer>
 
 </body>
